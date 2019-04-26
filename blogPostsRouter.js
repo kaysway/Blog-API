@@ -27,3 +27,31 @@ app.post('/', (req, res) => {
     const item = BlogPosts.create(req.body.title, req.body.content, req.body.author);
     res.status(201).json(item);
 });
+
+// PUT request for updating blog posts
+router.put('/:id', (req, res) => {
+    const requiredFields = ['id', 'content', 'author', 'publishDate'];
+    for (let i = 0; i < requireFields.length; i++) {
+        const field = requiredFields[i];
+        if(!(field in req.body)) {
+            const message = `Missing \`${field}\` in req body`;
+            console.error(message);
+            return res.status(400).send(message);
+        }
+    }
+    if (req.params.id !== req.body.id) {
+        const message = `Request path id (${req.params.id}) and request body id (${req.body.id}) must match`;
+        console.error(message);
+        return res.status(400).send(message);
+    }
+    console.log(`Updating blog post with \`${req.params.id}\``);
+
+    BlogPosts.update({
+        id: req.params.id,
+        title: req.body.title,
+        content: req.body.content,
+        author: req.body.author,
+        publishDate: req.body.publishDate
+    });
+    res.status(204).end();
+});
