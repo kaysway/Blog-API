@@ -1,0 +1,30 @@
+{
+  "name": "Blog_API",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blogPostsRouter.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaysway/blog-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaysway/blog-api/issues"
+  },
+  "homepage": "https://github.com/kaysway/blog-api#readme"
+}

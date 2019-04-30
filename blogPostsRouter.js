@@ -19,13 +19,13 @@ BlogPosts.create('Creating blank blog post #1');
 BlogPosts.create('Creating blank blog post #2');
 
 // GET request to BlogPosts to return all current Blog Posts
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.json(BlogPosts.get());
 });
 
 // POST request when a new BlogPost is created.
 // 400 error occurs if post is missing a title, content, or author
-app.post('/', (req, res) => {
+router.post('/', (req, res) => {
     const requiredFields = ['title', 'content', 'author'];
     for (let i=0; i<requiredFields.length; i++){
         const field = requiredFields[i];
